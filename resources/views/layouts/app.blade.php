@@ -40,6 +40,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -71,9 +72,14 @@
                 </div>
             </div>
         </nav>
+        <div class="fixed-top-disabled">
+            @include('layouts.nav')
+        </div>
 
         <main class="py-4">
             @yield('content')
+
+
         </main>
     </div>
 </body>
