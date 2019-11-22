@@ -11,8 +11,8 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-       \Spatie\Permission\Models\Role::findOrCreate("admin","");
-       \Spatie\Permission\Models\Role::findOrCreate("guest","");
+       \Spatie\Permission\Models\Role::findOrCreate("admin","web");
+       \Spatie\Permission\Models\Role::findOrCreate("guest","web");
 
     }
 }

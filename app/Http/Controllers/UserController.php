@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -28,7 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-
+        $roles = Role::get();
+        return view ('auth.register')->with(["roles" => $roles]);
     }
 
     /**
@@ -49,6 +51,12 @@ class UserController extends Controller
         $user->password = Hash::make($request->get('password'));
 
         $user->save();
+        if($request->get("role")){
+            $user->assignRole($request->get("role"));
+        }
+        else{
+            $user->assignRole("guest");
+        }
         return redirect()->route("home");
     }
 
