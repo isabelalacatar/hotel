@@ -144,13 +144,15 @@
                             @if(!Auth::guest())
                                 @hasrole("admin")
 
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Example select</label>
-                                    <select name="role" class="form-control" id="exampleFormControlSelect1">
+                                <div class="form-group row">
+                                    <label for="exampleFormControlSelect1" class="col-md-4 col-form-label text-md-right">User type</label>
+                                    <div class="col-md-6">
+                                    <select name="role" class="col-md-4 col-form-label text-md-right" id="exampleFormControlSelect1">
                                         @foreach($roles as $role)
-                                            <option value="{{$role->name}}">{{$role->name}}</option>
+                                            <option value="{{$role->name}}" class="form-control">{{$role->name}}</option>
                                         @endforeach
                                     </select>
+                                    </div>
                                 </div>
                                 @endhasrole
                             @endif
