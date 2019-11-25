@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $user->street=$data['street'];
         $user->phone=$data['phone'];
         $user->password=$data['password'];
-//        return User::create([
+//        return Customer::create([
 //            'name' => $data['name'],
 //            'email' => $data['email'],
 //
