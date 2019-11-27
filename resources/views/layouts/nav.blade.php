@@ -15,8 +15,15 @@
 
                 <a class="nav-link" href="{{ route('users.index') }}">{{ __('Customer') }}</a>
             </li>
+
+
                 @endhasrole
                 @endif
+            <li class="nav-item">
+
+                <a class="nav-link" href="{{ route('reservations.index') }}">{{ __('Book now') }}</a>
+            </li>
+
         </ul>
 
     </div>
