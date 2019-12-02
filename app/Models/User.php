@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
-    public function user()
+    public function reservations()
     {
         return $this->hasMany(Reservation::class);
     }
@@ -20,6 +20,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    public const USER_TYPES = [
+        1 => 'guest',
+        2 => 'admin user',
+        3=>'isabela'
+    ];
     protected $fillable = [
         'name', 'email', 'password',
     ];
