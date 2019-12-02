@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    public function room()
+    public function hotel()
     {
         return $this->belongsTo(Hotel::class);
 
@@ -15,4 +15,9 @@ class Room extends Model
     {
         return $this->belongsToMany(Reservation::class);
     }
+
+    public const ROOM_TYPES = [
+        1 => 'Single',
+        2 => 'Double'
+    ];
 }
