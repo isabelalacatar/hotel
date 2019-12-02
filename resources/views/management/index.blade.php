@@ -1,54 +1,59 @@
+
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
-            <table class="table table-striped table-dark">
+            <a href="{{ route('management.create') }}" class="btn btn-warning">ADD</a>
+            <table class="table table-striped table-primary">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Country</th>
                     <th scope="col">City</th>
+                    <th scope="col">Country</th>
                     <th scope="col">Street</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Password</th>
+                    <th scope="col">Email</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $user)
+                @foreach($hotels as $hotel)
                     <tr>
                         <th scope="row">1</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->country}}</td>
-                        <td>{{$user->city}}</td>
-                        <td>{{$user->street}}</td>
-                        <td>{{$user->phone}}</td>
-                        <td>{{$user->password}}</td>
+                        <td>{{$hotel->name}}</td>
+                        <td>{{$hotel->city}}</td>
+                        <td>{{$hotel->country}}</td>
+                        <td>{{$hotel->street}}</td>
+                        <td>{{$hotel->phone}}</td>
+                        <td>{{$hotel->email}}</td>
 
-                        <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">EDIT</a></td>
-                        @if(Auth::user()->id!==$user->id)
+
+                        <td><a href="{{ route('management.edit', $hotel->id) }}" class="btn btn-warning">EDIT</a></td>
+
                             <td>
                                 <a class="btn btn-danger" href="#"
                                    onclick="this.nextElementSibling.submit(); return false;">DELETE</a>
 
                                 <form method="POST" class="collapse"
-                                      action="{{ route('users.destroy', $user->id) }}">
+                                      action="{{ route('management.destroy', $hotel->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="hidden" name="id" value="{{ $user->id }}">
+                                    <input type="hidden" name="id" value="{{ $hotel->id }}">
                                 </form>
                             </td>
-                        @endif
+
 
                     </tr>
                 @endforeach
-                <td><a href="{{ route('management.insert', $hotel->id) }}" class="btn btn-warning">ADD</a></td>
+
 
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+

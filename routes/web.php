@@ -26,3 +26,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController', ['except' => ['show']]);
 Route::resource('reservations', 'ReservationController', ['except' => ['show']]);
 
+Route::resource('management', 'ManagementController', ['except' => ['show']]);
+Route::resource('rooms', 'RoomController', ['except' => ['show']]);
