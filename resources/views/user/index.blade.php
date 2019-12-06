@@ -45,7 +45,6 @@
 
                     </tr>
                 @endforeach
-                <td><a href="{{ route('management.insert', $hotel->id) }}" class="btn btn-warning">ADD</a></td>
 
                 </tbody>
             </table>
