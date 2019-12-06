@@ -20,4 +20,11 @@ class Room extends Model
         1 => 'Single',
         2 => 'Double'
     ];
+
+    public const ROOM_VIEWS = [
+        1 => 'Gardem',
+        2 => 'Sea',
+        3 => 'Mountain',
+    ];
+    public $timestamps = false;
 }

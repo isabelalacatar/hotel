@@ -19,7 +19,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" >
+                                           value="{{ old('name') }}">
 
 
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" >
+                                           value="{{ old('email') }}">
 
 
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="col-md-6">
                                     <input id="country" type="text"
                                            class="form-control @error('country') is-invalid @enderror" name="country"
-                                           value="{{ old('country') }}" >
+                                           value="{{ old('country') }}">
 
 
                                 </div>
@@ -58,7 +58,7 @@
                                 <div class="col-md-6">
                                     <input id="city" type="text"
                                            class="form-control @error('city') is-invalid @enderror" name="city"
-                                           value="{{ old('city') }}" >
+                                           value="{{ old('city') }}">
 
 
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="col-md-6">
                                     <input id="street" type="text"
                                            class="form-control @error('street') is-invalid @enderror" name="street"
-                                           value="{{ old('street') }}" >
+                                           value="{{ old('street') }}">
 
 
                                 </div>
@@ -84,7 +84,7 @@
                                 <div class="col-md-6">
                                     <input id="phone" type="text"
                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                           value="{{ old('phone') }}" >
+                                           value="{{ old('phone') }}">
 
 
                                 </div>
@@ -96,11 +96,14 @@
                                 @hasrole("admin")
 
                                 <div class="form-group row">
-                                    <label for="exampleFormControlSelect1" class="col-md-4 col-form-label text-md-right">User type</label>
+                                    <label for="exampleFormControlSelect1"
+                                           class="col-md-4 col-form-label text-md-right">User type</label>
                                     <div class="col-md-6">
-                                        <select name="role" class="col-md-4 col-form-label text-md-right" id="exampleFormControlSelect1">
+                                        <select name="role" class="col-md-4 col-form-label text-md-right"
+                                                id="exampleFormControlSelect1">
                                             @foreach($roles as $role)
-                                                <option value="{{$role->name}}" class="form-control">{{$role->name}}</option>
+                                                <option value="{{$role->name}}"
+                                                        class="form-control">{{$role->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

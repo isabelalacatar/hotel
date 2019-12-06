@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,7 @@ class ManagementController extends Controller
      */
     public function index()
     {
-        $hotels= Hotel::get();
+        $hotels = Hotel::get();
         return view('management.index', ['hotels' => $hotels]);
     }
 
@@ -27,15 +28,7 @@ class ManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
     public function create(Request $request)
     {
 
@@ -47,7 +40,7 @@ class ManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -67,7 +60,7 @@ class ManagementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,13 +71,17 @@ class ManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $hotels = Hotel::find($id);
-        return view('management.edit')->with('hotel', $hotels);
+        $hotels = Hotel::with(["rooms"])->where("id", $id)->first();
+
+        return view('management.edit')
+            ->with('hotel', $hotels)
+            ->with('roomTypes', Room::ROOM_TYPES)
+            ->with('roomViews', Room::ROOM_VIEWS);
     }
 
 
@@ -97,8 +94,6 @@ class ManagementController extends Controller
             'street' => 'required',
             'phone' => 'required',
             'email' => 'required',
-
-
 
 
         ]);
@@ -123,19 +118,5 @@ class ManagementController extends Controller
         $hotel->delete();
         return redirect()->route("home");
     }
-    public function submit(Request $request)
-    {
-        $data = array();
-        $data['name']= $request->Name;
-        $data['city'] = $request->City;
-        $data['country'] = $request->Country;
-        $data['street'] = $request->Street;
-        $data['phone'] = $request->Phone;
-        $data['email'] = $request->email;
 
-        $hotel = Hotel::create($data);
-
-        return redirect()->route("management.index");
-
-    }
 }

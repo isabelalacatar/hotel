@@ -2,23 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f012cd03-b300-4bfb-930c-e686530a05c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ManagementController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_28_090504_alter_hotels_add_timestamps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/HotelsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RoomsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Rooms/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/management/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/management/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/management/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/RoomsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hotel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hotel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ManagementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ManagementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Room.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_19_092000_create_hotels_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_19_092000_create_hotels_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Rooms/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Rooms/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/management/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/management/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/management/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/management/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reservation/insert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reservation/insert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +53,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="hotels.test" id="8c7fce37-a417-473e-bfa9-c9a5b2ada0a6" name="hotels.test" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="C:/xampp/htdocs/hotel" />
+          <mapping local-root="$PROJECT_DIR$/public" remote-root="C:/xampp/htdocs/hotel/public" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -139,19 +154,21 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/tightenco/ziggy" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TeG5x9bOgIlqVuLZ03BaMFncn6" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\hotel\app\Models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\hotel\resources\js\components" />
       <recent name="C:\xampp\htdocs\hotel" />
     </key>
   </component>
@@ -167,11 +184,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Web Page.hotels.test">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="hotels.test" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="hotels.test">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP Web Page.hotels.test" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -197,7 +221,12 @@
       <workItem from="1574834148850" duration="10698000" />
       <workItem from="1574920696194" duration="18964000" />
       <workItem from="1575026903824" duration="7125000" />
-      <workItem from="1575267745667" duration="3942000" />
+      <workItem from="1575267745667" duration="14384000" />
+      <workItem from="1575352288051" duration="5095000" />
+      <workItem from="1575382822012" duration="51000" />
+      <workItem from="1575438729004" duration="19343000" />
+      <workItem from="1575526621760" duration="20675000" />
+      <workItem from="1575611952706" duration="11139000" />
     </task>
     <task id="LOCAL-00001" summary="Added roles and user seeders">
       <created>1574084813210</created>
@@ -311,5 +340,12 @@
     <MESSAGE value="Added edit ,delete etc" />
     <MESSAGE value="Index" />
     <option name="LAST_COMMIT_MESSAGE" value="Index" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="index.php">
+        <watch expression="$request-&gt;all()" language="PHP" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 //Route:: get('/user','UserController@index')->name('user');
 
@@ -27,4 +27,10 @@ Route::resource('users', 'UserController', ['except' => ['show']]);
 Route::resource('reservations', 'ReservationController', ['except' => ['show']]);
 
 Route::resource('management', 'ManagementController', ['except' => ['show']]);
-Route::resource('rooms', 'RoomController', ['except' => ['show']]);
+Route::resource('rooms', 'RoomController', []);
+
+
+Route::get('/api/hotel/{id}/rooms', function (Request $request) {
+    $rooms = \App\Models\Room::where('hotel_id', 3)->get();
+    return json_encode($rooms);
+});

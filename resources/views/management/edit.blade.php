@@ -2,10 +2,12 @@
 
 @section('content')
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Edit') }}</div>
+
 
                     <div class="card-body">
                         <form method="POST" action="{{route('management.update',$hotel->id)}}">
@@ -123,8 +125,14 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
+
+
                 </div>
+            </div>
+            <div class="col-md-8">
+                <rooms-component :hotel-id="{{ $hotel->id }}" :room-views = "{{json_encode($roomViews)}}" :room-types="{{json_encode($roomTypes)}}"> </rooms-component>
             </div>
         </div>
     </div>
