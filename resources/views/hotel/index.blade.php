@@ -14,7 +14,11 @@
             <div class="card">
                 <div>
                     @foreach($hotels as $hotel)
-                    <img src="/images/bg_1.jpg">
+                        @if(isset($hotel->uploads[0]))
+                    <img src={{Storage::url("public/hotels/".$hotel->id."/".$hotel->uploads[0]->path)}}>
+                        @else
+                     <img src="{{asset('images/No_Image_Available.jpg')}}">
+                        @endif
                     <a href="{{route('hotels.show', $hotel->id)}}">{{ $hotel->name}}</a>
                     @endforeach
                 </div>
