@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Models\Room;
 use App\Models\User;
+use App\Models\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 
@@ -82,6 +84,8 @@ class ManagementController extends Controller
             ->with('hotel', $hotels)
             ->with('roomTypes', Room::ROOM_TYPES)
             ->with('roomViews', Room::ROOM_VIEWS);
+
+
     }
 
 
@@ -117,6 +121,24 @@ class ManagementController extends Controller
         $hotel = Hotel::find($id);
         $hotel->delete();
         return redirect()->route("home");
+    }
+
+
+   public function upload(Request $request)    {
+        if($request->get('image')) {
+            $image = $request->get('image');
+            $hotel_id = $request->get('hotelId');
+
+            $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+
+            $img=\Image::make($image);
+            $img->save(Storage::path('public/hotels/' . $hotel_id.'/'.$name));
+            $upload = new Upload();
+            $upload->path = $name;
+            $upload->hotel_id = $hotel_id;
+            $upload->save();
+        }
+       return response()->json(['success' => 'You have successfully uploaded an image'], 200);
     }
 
 }

@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>File Upload Tutorial</title>
+{{--        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
+{{--        <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>--}}
+{{--        <script src="{{asset('js/app.js')}}"></script>--}}
+    </head>
+    <body>
     <div class="container">
 
         <div class="row justify-content-center">
@@ -134,7 +144,14 @@
             <div class="col-md-8">
                 <rooms-component :hotel-id="{{ $hotel->id }}" :room-views = "{{json_encode($roomViews)}}" :room-types="{{json_encode($roomTypes)}}"> </rooms-component>
             </div>
+            <div class="container" id="app">
+                <upload-component :hotel-id="{{ $hotel->id }}"></upload-component>
+            </div>
+
+
+
         </div>
     </div>
+    </body>
 @endsection
 

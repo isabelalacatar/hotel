@@ -18,7 +18,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = \App\Models\Hotel::get();
+        $hotels = Hotel::with(['uploads'])->get();
         return view('hotel.index', ['hotels' => $hotels]);
     }
 

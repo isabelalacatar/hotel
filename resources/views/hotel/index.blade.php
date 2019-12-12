@@ -5,21 +5,23 @@
     <!DOCTYPE html>
 <html>
 <head>
-<title>Hotels</title>
+    <title>Hotels</title>
 </head>
 <body>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div>
             <div class="card">
                 <div>
                     @foreach($hotels as $hotel)
                         @if(isset($hotel->uploads[0]))
-                    <img src={{Storage::url("public/hotels/".$hotel->id."/".$hotel->uploads[0]->path)}}>
+                                     <div class="card col-md-4">
+                                    <img class="card-img-top" src={{Storage::url("public/hotels/".$hotel->id."/".$hotel->uploads[0]->path)}} >
+                                     </div>
                         @else
-                     <img src="{{asset('images/No_Image_Available.jpg')}}">
+                            <img src="{{asset('images/No_Image_Available.jpg')}}">
                         @endif
-                    <a href="{{route('hotels.show', $hotel->id)}}">{{ $hotel->name}}</a>
+                        <a href="{{route('hotels.show', $hotel->id)}}">{{ $hotel->name}}</a>
                     @endforeach
                 </div>
             </div>
