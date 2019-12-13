@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
+use Symfony\Component\Console\Input\Input;
 
 class ManagementController extends Controller
 {
@@ -124,21 +125,39 @@ class ManagementController extends Controller
     }
 
 
-   public function upload(Request $request)    {
-        if($request->get('image')) {
-            $image = $request->get('image');
-            $hotel_id = $request->get('hotelId');
+    public function upload(Request $request)
+    {
+        /*  if($request->get('image')) {
+              $image = $request->get('image');
+              $hotel_id = $request->get('hotelId');
 
-            $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+              $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
 
-            $img=\Image::make($image);
-            $img->save(Storage::path('public/hotels/' . $hotel_id.'/'.$name));
-            $upload = new Upload();
-            $upload->path = $name;
-            $upload->hotel_id = $hotel_id;
-            $upload->save();
-        }
-       return response()->json(['success' => 'You have successfully uploaded an image'], 200);
+              $img=\Image::make($image);
+              $img->save(Storage::path('public/hotels/' . $hotel_id.'/'.$name));
+              $upload = new Upload();
+              $upload->path = $name;
+              $upload->hotel_id = $hotel_id;
+              $upload->save();
+          }
+         return response()->json(['success' => 'You have successfully uploaded an image'], 200);
+  */  //$image = $request->get('image');
+
+        $image = $request->file('file');
+        $name = $image->getClientOriginalName();
+        $hotel_id = $request->get('hotelId');
+        //$path = hash('sha256', time());
+        $fileName = time().'_'.$name;
+        Storage::putFileAs('public/hotels/' . $hotel_id . '/', $image,$fileName);
+        $upload = new Upload();
+        $upload->path = $fileName;
+        $upload->hotel_id = $hotel_id;
+        $upload->save();
+
+        return response()->json([
+            'success' => true,
+            'id' => $upload->id
+        ], 200);
+
     }
-
 }

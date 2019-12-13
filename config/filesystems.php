@@ -65,5 +65,9 @@ return [
         ],
 
     ],
+    'uploads' => [
+        'driver' => 'local',
+        'root' => storage_path().'/public/hotels',
+    ],
 
 ];

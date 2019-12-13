@@ -35,5 +35,6 @@ Route::get('/api/hotel/{id}/rooms', function (Request $request) {
     $rooms = \App\Models\Room::where('hotel_id', 3)->get();
     return json_encode($rooms);
 });
+Route::get('management/index','ManagementController@create');
 Route::post('/management/upload','ManagementController@upload')->name('management.upload');
 

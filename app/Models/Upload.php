@@ -12,5 +12,5 @@ class Upload extends Model
         return $this->belongsTo(Hotel::class);
 
     }
-   // public $timestamps = false;
+    //public $timestamps = false;
 }

@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 
 
@@ -26,7 +27,8 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+//Vue.component('upload-component',require('./components/UploadComponent.vue').default);
 const app = new Vue({
     el: '#app',
 });
-Vue.component('upload-component',require('./components/UploadComponent.vue'));
