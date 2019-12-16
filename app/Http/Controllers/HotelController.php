@@ -50,7 +50,7 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        $hotel = Hotel::with(['rooms'])->where('id', $id)->first();
+        $hotel = Hotel::with(['rooms','uploads'])->where('id', $id)->first();
         return view('hotel.show', ['hotel' => $hotel]);
 
 

@@ -5,7 +5,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <a href="{{ route('management.create') }}" class="btn btn-warning">ADD</a>
+
             <table class="table table-striped table-primary">
                 <thead>
                 <tr>

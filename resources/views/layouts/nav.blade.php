@@ -24,7 +24,7 @@
             @endif
             <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('hotels.index') }}">{{ __('Hotels') }}</a>
+                <a class="nav-link" href="{{ route('hotels.index') }}">{{ __('Reservation') }}</a>
             </li>
 
         </ul>

@@ -127,21 +127,7 @@ class ManagementController extends Controller
 
     public function upload(Request $request)
     {
-        /*  if($request->get('image')) {
-              $image = $request->get('image');
-              $hotel_id = $request->get('hotelId');
 
-              $name = time() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-
-              $img=\Image::make($image);
-              $img->save(Storage::path('public/hotels/' . $hotel_id.'/'.$name));
-              $upload = new Upload();
-              $upload->path = $name;
-              $upload->hotel_id = $hotel_id;
-              $upload->save();
-          }
-         return response()->json(['success' => 'You have successfully uploaded an image'], 200);
-  */  //$image = $request->get('image');
 
         $image = $request->file('file');
         $name = $image->getClientOriginalName();
@@ -160,4 +146,5 @@ class ManagementController extends Controller
         ], 200);
 
     }
+
 }

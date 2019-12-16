@@ -47,6 +47,7 @@ class RoomController extends Controller
             $room->type = $request->get('roomType');
             $room->view = $request->get('roomView');
             $room->hotel_id = $request->get('hotelId');
+
             $room->save();
             $rooms = Room::where("hotel_id", $id)->get();
             return Response::json(['data' => $rooms]);

@@ -11,7 +11,7 @@
         {{--        <script src="{{asset('js/app.js')}}"></script>--}}
     </head>
     <body>
-    <div class="container">
+    <span class="container">
 
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -145,7 +145,7 @@
                 <rooms-component :hotel-id="{{ $hotel->id }}" :room-views="{{json_encode($roomViews)}}"
                                  :room-types="{{json_encode($roomTypes)}}"></rooms-component>
             </div>
-            <div class="card-header">Add files</div>
+
 
             <div class="card-body">
                 <upload-component :hotel-id="{{ $hotel->id }}"></upload-component>
@@ -153,9 +153,8 @@
             </div>
 
 
-
-    </div>
-    </div>
+        </div>
+        </div>
     </body>
 @endsection
 
