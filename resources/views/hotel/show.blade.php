@@ -68,7 +68,7 @@
 
                 <div class="col-md-6">
                     <div class=" w3-padding w3-col 0 m8" style="margin: 0 !important;">
-                        <div class="w3-container w3-red" style="margin: 0 !important;">
+                        <div class="w3-container w3-blue" style="margin: 0 !important;">
                             <h2><i class="fa fa-bed w3-margin-right"></i>{{ $hotel['name']}}</h2>
                         </div>
                         <div class="w3-container w3-white w3-padding-16" style="margin: 0 auto;">
