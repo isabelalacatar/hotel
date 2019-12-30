@@ -28,7 +28,7 @@ Route::resource('hotels', 'HotelController', []);
 Route::post('hotels/check', 'HotelController@check')->name('hotels.check');
 
 Route::resource('management', 'ManagementController', ['except' => ['show']]);
-Route::resource('rooms', 'RoomController', []);
+Route::resource('rooms', 'RoomController');
 
 
 Route::get('/api/hotel/{id}/rooms', function (Request $request) {

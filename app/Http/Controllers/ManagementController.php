@@ -22,7 +22,7 @@ class ManagementController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::get();
+        $hotels = Hotel::paginate(2);
         return view('management.index', ['hotels' => $hotels]);
     }
 

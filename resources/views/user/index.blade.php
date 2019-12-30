@@ -13,7 +13,7 @@
                     <th scope="col">City</th>
                     <th scope="col">Street</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Password</th>
+{{--                    <th scope="col">Password</th>--}}
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +26,7 @@
                         <td>{{$user->city}}</td>
                         <td>{{$user->street}}</td>
                         <td>{{$user->phone}}</td>
-                        <td>{{$user->password}}</td>
+{{--                        <td>{{$user->password}}</td>--}}
 
                         <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">EDIT</a></td>
                         @if(Auth::user()->id!==$user->id)

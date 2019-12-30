@@ -21,8 +21,9 @@
                 </thead>
                 <tbody>
                 @foreach($hotels as $hotel)
+
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">  {{ ($hotels ->currentpage()-1) * $hotels ->perpage() + $loop->index + 1 }}</th>
                         <td>{{$hotel->name}}</td>
                         <td>{{$hotel->city}}</td>
                         <td>{{$hotel->country}}</td>
@@ -48,10 +49,9 @@
 
                     </tr>
                 @endforeach
-
-
                 </tbody>
             </table>
+            {{ $hotels->links() }}
         </div>
     </div>
 @endsection

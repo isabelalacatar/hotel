@@ -30,7 +30,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::get();
-        return view ('auth.register')->with(["roles" => $roles]);
+        return view('auth.register')->with(["roles" => $roles]);
     }
 
     /**
@@ -51,10 +51,9 @@ class UserController extends Controller
         $user->password = Hash::make($request->get('password'));
 
         $user->save();
-        if($request->get("role")){
+        if ($request->get("role")) {
             $user->assignRole($request->get("role"));
-        }
-        else{
+        } else {
             $user->assignRole("guest");
         }
         return redirect()->route("home");
@@ -95,9 +94,7 @@ class UserController extends Controller
             'city' => 'required',
             'street' => 'required',
             'phone' => 'required',
-            'password' => 'required',
-
-
+            'password' => 'required|confirmed',
         ]);
         $user = User::find($id);
         $user->name = $request->get('name');
@@ -106,7 +103,9 @@ class UserController extends Controller
         $user->city = $request->get('city');
         $user->street = $request->get('street');
         $user->phone = $request->get('phone');
-        $user->password = $request->get('password');
+        $request->user()->fill([
+            'password' => Hash::make($request->password)
+        ])->save();
         $user->save();
 
 
@@ -120,8 +119,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+
         return redirect()->route("home");
-
-
     }
 }
