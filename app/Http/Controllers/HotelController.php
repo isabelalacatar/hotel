@@ -129,4 +129,9 @@ class HotelController extends Controller
 
 
     }
+    public function myres()
+    {
+        $reservations = Reservation::get();
+        return view('hotel.myres', ['hotel' => $reservations]);
+    }
 }

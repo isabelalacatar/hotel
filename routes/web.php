@@ -29,7 +29,7 @@ Route::post('hotels/check', 'HotelController@check')->name('hotels.check');
 
 Route::resource('management', 'ManagementController', ['except' => ['show']]);
 Route::resource('rooms', 'RoomController');
-
+Route::get('/hotels/myres', 'HotelController@myres')->name('hotels.myres');
 
 Route::get('/api/hotel/{id}/rooms', function (Request $request) {
     $rooms = \App\Models\Room::where('hotel_id', 3)->get();
@@ -38,3 +38,4 @@ Route::get('/api/hotel/{id}/rooms', function (Request $request) {
 Route::get('management/index','ManagementController@create');
 Route::post('/management/upload','ManagementController@upload')->name('management.upload');
 
+Route::get('/management/book','ManagementController@book')->name('management.book');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Upload;
@@ -127,14 +128,12 @@ class ManagementController extends Controller
 
     public function upload(Request $request)
     {
-
-
         $image = $request->file('file');
         $name = $image->getClientOriginalName();
         $hotel_id = $request->get('hotelId');
         //$path = hash('sha256', time());
-        $fileName = time().'_'.$name;
-        Storage::putFileAs('public/hotels/' . $hotel_id . '/', $image,$fileName);
+        $fileName = time() . '_' . $name;
+        Storage::putFileAs('public/hotels/' . $hotel_id . '/', $image, $fileName);
         $upload = new Upload();
         $upload->path = $fileName;
         $upload->hotel_id = $hotel_id;
@@ -147,4 +146,9 @@ class ManagementController extends Controller
 
     }
 
+    public function book()
+    {
+        $reservations = Reservation::get();
+        return view('management.book', ['reservations' => $reservations]);
+    }
 }

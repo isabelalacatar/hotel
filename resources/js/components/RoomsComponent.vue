@@ -120,6 +120,7 @@
                 });
 
 
+
         },
         methods: {
             insertRoom: function (event) {
@@ -130,7 +131,6 @@
                 formData.append('roomType', this.roomType);
                 formData.append('roomView', this.roomView);
                 formData.append('hotelId', this.hotelId);
-                formData.append('pathImg', this.pathImg);
 
 
                 axios.post(

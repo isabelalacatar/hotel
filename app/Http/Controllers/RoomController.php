@@ -49,7 +49,7 @@ class RoomController extends Controller
             $room->hotel_id = $request->get('hotelId');
 
             $room->save();
-            $rooms = Room::where("hotel_id", $id)->get();
+            $rooms = Room::where("hotel_id",  $request->get('hotelId'))->get();
             return Response::json(['data' => $rooms]);
 
         } catch (Exception $e) {

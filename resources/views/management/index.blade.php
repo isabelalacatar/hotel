@@ -45,6 +45,7 @@
                                     <input type="hidden" name="id" value="{{ $hotel->id }}">
                                 </form>
                             </td>
+                        <td><a href="{{ route('management.book', $hotel->id) }}" class="btn btn-warning">RESERVATIONS</a></td>
 
 
                     </tr>

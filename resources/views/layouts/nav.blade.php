@@ -26,8 +26,12 @@
 
                 <a class="nav-link" href="{{ route('hotels.index') }}">{{ __('Reservation') }}</a>
             </li>
+            <li class="nav-item">
 
+                <a class="nav-link" href="{{ route('hotels.myres') }}">{{ __('My Reservation') }}</a>
+            </li>
         </ul>
+
 
     </div>
 </nav>
