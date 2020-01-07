@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('hotels.myres') }}">{{ __('My Reservation') }}</a>
+                <a class="nav-link" href="{{ route('hotels.res') }}">{{ __('My Reservation') }}</a>
             </li>
         </ul>
 

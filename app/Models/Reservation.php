@@ -12,7 +12,7 @@ class Reservation extends Model
     }
     public function room()
     {
-        return $this->belongsToMany(Room::class);
+        return $this->belongsTo(Room::class);
     }
     public $timestamps = false;
 }

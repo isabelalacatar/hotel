@@ -146,9 +146,11 @@ class ManagementController extends Controller
 
     }
 
-    public function book()
+    public function book($id)
     {
-        $reservations = Reservation::get();
+        $reservations = Reservation::with(['user'])->whereHas('room', function ($query) use ($id) {
+            $query->where('hotel_id', $id);
+        })->get();
         return view('management.book', ['reservations' => $reservations]);
     }
 }

@@ -17,18 +17,20 @@
                 </thead>
                 <tbody>
                 @foreach($reservations as $reservation)
+                    @if(isset($reservation))
                     <tr>
                         <th scope="row">1</th>
-                        <td>{{Auth::id()}}</td>
+                        <td>{{$reservation->user->id}}</td>
                         <td>{{$reservation->check_in_date}}</td>
                         <td>{{$reservation->check_out_date}}</td>
-                        <td>{{$reservation->room_id}}</td>
+                        <td>{{$reservation->room->id}}</td>
 
                         {{--                        <td>{{$user->password}}</td>--}}
 
 
 
                     </tr>
+                    @endif
                 @endforeach
 
                 </tbody>

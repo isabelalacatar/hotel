@@ -11,9 +11,9 @@ class Room extends Model
         return $this->belongsTo(Hotel::class);
 
     }
-    public function rezervation()
+    public function reservation()
     {
-        return $this->belongsToMany(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public const ROOM_TYPES = [
