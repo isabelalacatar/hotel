@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -121,5 +123,14 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route("home");
+    }
+
+    public function res($id)
+    {
+        $rooms = Room::with(['hotel','reservations' => function ($query) use ($id) {
+            $query->where('user_id', $id);
+        }])->get();
+        return view('user.res', ['rooms' => $rooms]);
+
     }
 }

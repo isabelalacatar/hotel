@@ -129,11 +129,5 @@ class HotelController extends Controller
 
 
     }
-    public function res($id)
-    {
-        $reservations = Reservation::with(['user,room'])->whereHas('user', function ($query) use ($id) {
-            $query->where('hotel_id', $id);
-        })->get();
-        return view('management.book', ['reservations' => $reservations]);
-    }
+
 }

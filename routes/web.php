@@ -39,4 +39,4 @@ Route::get('management/index','ManagementController@create');
 Route::post('/management/upload','ManagementController@upload')->name('management.upload');
 
 Route::get('/management/book/{id}/','ManagementController@book')->name('management.book');
-Route::get('/hotel/res/{id}/', 'HotelController@res')->name('hotel.res');
+Route::get('/users/res/{id}/','UserController@res')->name('users.res');

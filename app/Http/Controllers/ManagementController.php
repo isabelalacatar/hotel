@@ -153,4 +153,5 @@ class ManagementController extends Controller
         })->get();
         return view('management.book', ['reservations' => $reservations]);
     }
+
 }
