@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('users.res',Auth::id()) }}">{{ __('My Reservation') }}</a>
+                <a class="nav-link" href="{{ route('users.res', Auth::id())}}">{{ __('My Reservation') }}</a>
             </li>
         </ul>
 

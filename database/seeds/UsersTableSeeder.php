@@ -19,6 +19,10 @@ class UsersTableSeeder extends Seeder
         $user->name="admin user";
         $user->email="admin@hotel.com ";
         $user->password=\Illuminate\Support\Facades\Hash::make("12345");
+        $user->street="Oituz";
+        $user->country="Romania";
+        $user->city="Sibiu";
+        $user->phone="0740051205";
         $user->remember_token = Str::random(10);
      $user->save();
 
@@ -27,7 +31,11 @@ class UsersTableSeeder extends Seeder
         $guest->name="guest";
         $guest->email="guest@hotel.com ";
         $guest->password=\Illuminate\Support\Facades\Hash::make("12345");
-        $user->remember_token = Str::random(10);
+        $guest->street="Oituz";
+        $guest->country="Romania";
+        $guest->city="Sibiu";
+        $guest->phone="0740051205";
+        $guest->remember_token = Str::random(10);
         $guest->save();
 
     }

@@ -111,6 +111,7 @@
 
 
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -120,8 +121,36 @@
                     <div style="text-align: justify">{{$hotel->description}}</div>
                 </div>
 {{--            </div>--}}
+            <form method="POST" action="{{ route('review.store') }}">
+                @csrf
+                @method('POST')
+                <div class="form-group ">
+                    <label for="description" class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="description" type="text"
+                               class="form-control  @error('description') is-invalid @enderror" name="description"
+                               value="{{ old('description') }}">
+
+
+                    </div>
+                    <div>
+                        <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
+                    </div>
+
+                </div>
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Add') }}
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+
 @endsection
+
 </body>
 </html>
