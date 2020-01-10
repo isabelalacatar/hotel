@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
-use App\Reviews;
+use App\Models\Review;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,8 +43,9 @@ class ReviewsController extends Controller
 
 
         ]);
-        $review = new Reviews();
+        $review = new Review();
         $review->description = $request->get('description');
+        $review->rating =0;
         $review->user_id = Auth::id();
         $review->hotel_id=$request->get('hotel_id');
 
@@ -59,9 +61,9 @@ class ReviewsController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**

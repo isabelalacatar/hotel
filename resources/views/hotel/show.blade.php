@@ -116,21 +116,22 @@
                     </div>
                 </div>
             </div>
-{{--            <div class="row mt-1">--}}
-                <div class="w3-padding w3-col 0 m8 mt-2">
-                    <div style="text-align: justify">{{$hotel->description}}</div>
-                </div>
-{{--            </div>--}}
+            {{--            <div class="row mt-1">--}}
+            <div class="w3-padding w3-col 0 m8 mt-2">
+                <div style="text-align: justify">{{$hotel->description}}</div>
+            </div>
+            {{--            </div>--}}
             <form method="POST" action="{{ route('review.store') }}">
                 @csrf
                 @method('POST')
                 <div class="form-group ">
-                    <label for="description" class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
+                    <label for="description"
+                           class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
 
                     <div class="col-md-6">
-                        <input id="description" type="text"
-                               class="form-control  @error('description') is-invalid @enderror" name="description"
-                               value="{{ old('description') }}">
+                        <textarea id="description" type="text"
+                                  class="form-control  @error('description') is-invalid @enderror" name="description"
+                                  value="{{ old('description') }}"></textarea>
 
 
                     </div>
@@ -139,14 +140,28 @@
                     </div>
 
                 </div>
-                <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Add') }}
-                        </button>
-                    </div>
+                <div class="col-md-8" style="text-align: center">
+
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Add') }}
+                    </button>
+
                 </div>
             </form>
+            <div>
+                <label><b>Reviews</b></label><br>
+
+                @foreach($hotel->reviews as $rev)
+                    @if(isset($rev))
+
+                        <label>{{ __('Name') }}</label>
+                        <label for="user_id">{{$rev->user_id}}</label>
+                        <label>{{ __('Date') }}</label>
+                        <label for="created_at">{{$rev->created_at}}</label>
+                        <div>{{$rev->description}}</div>
+                    @endif
+                @endforeach
+            </div>
         </div>
     </div>
 

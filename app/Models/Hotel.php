@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use App\Models\Upload;
-use App\reviews;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
@@ -16,6 +16,6 @@ class Hotel extends Model
         return $this->hasMany(Upload::class);
     }
     public function reviews(){
-        return  $this->hasMany(Reviews::class);
+        return  $this->hasMany(Review::class);
     }
 }

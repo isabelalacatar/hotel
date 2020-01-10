@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Reviews extends Model
+class Review extends Model
 {
     public  function hotel()
     {
         return $this->belongsTo(Hotel::class);
     }
-    public  function users()
+    public  function user()
     {
         return $this->belongsTo(User::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Review;
 use App\Models\Room;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -50,9 +51,8 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        $hotel = Hotel::with(['rooms','uploads'])->where('id', $id)->first();
+        $hotel = Hotel::with(['rooms','uploads','reviews'])->where('id', $id)->first();
         return view('hotel.show', ['hotel' => $hotel]);
-
 
     }
 
