@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable(false);
             $table->unsignedInteger('hotel_id')->nullable(false);
             $table->integer('rating')->nullable(false);
-           // $table->timestamps();
+            $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users")
                 ->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("hotel_id")->references("id")->on("hotels")

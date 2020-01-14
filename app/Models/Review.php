@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    public  function hotel()
+    public function hotel()
     {
         return $this->belongsTo(Hotel::class);
     }
-    public  function user()
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public $timestamps = false;
+
+
+
+    public function getCreatedAtAttribute($value)
+    {
+//        return date('D m Y H:i:s', strtotime($value));
+    }
 }

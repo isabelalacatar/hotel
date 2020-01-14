@@ -3,11 +3,12 @@
 <html>
 <title>Reservation</title>
 <meta charset="UTF-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="csrf-token" content="{{csrf_token() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{{ asset('js/rating.js') }}" defer></script>
 <style>
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", Arial, Helvetica, sans-serif
@@ -17,6 +18,15 @@
         .w3-col.m8, .w3-twothird {
             width: 100% !important;
         }
+    }
+
+    .star-rating {
+        line-height: 32px;
+        font-size: 1.25em;
+    }
+
+    .star-rating .fa-star{
+        color: yellow;
     }
 </style>
 <body class="w3-light-grey">
@@ -121,12 +131,12 @@
                 <div style="text-align: justify">{{$hotel->description}}</div>
             </div>
             {{--            </div>--}}
-            <form method="POST" action="{{ route('review.store') }}">
+            <form method="GET" action="{{ route('review.store',$review->id) }}">
                 @csrf
-                @method('POST')
+                @method('GET')
                 <div class="form-group ">
-                    <label for="description"
-                           class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
+                    <br><label for="description"
+                               class="col-md-4 col-form-label text-md-left">{{ __('Description') }}</label>
 
                     <div class="col-md-6">
                         <textarea id="description" type="text"
@@ -139,6 +149,16 @@
                         <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
                     </div>
 
+                </div>
+                <div class="col-lg-12">
+                    <div class="star-rating">
+                        <span class="fa fa-star" data-rating="1"></span>
+                        <span class="fa fa-star" data-rating="2"></span>
+                        <span class="fa fa-star" data-rating="3"></span>
+                        <span class="fa fa-star" data-rating="4"></span>
+                        <span class="fa fa-star" data-rating="5"></span>
+                        <input type="hidden" name="rating" class="rating-value" value="2.56">
+                    </div>
                 </div>
                 <div class="col-md-8" style="text-align: center">
 
@@ -153,12 +173,20 @@
 
                 @foreach($hotel->reviews as $rev)
                     @if(isset($rev))
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <p class="text-secondary text-center">{{$rev->updated_at}}</p>
+                                    </div>
+                                    <p>
+                                        <a class="float-left"><strong>{{$rev->user->name}}</strong></a>
+                                    </p>
+                                    <div><br>{{$rev->description}}</div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <label>{{ __('Name') }}</label>
-                        <label for="user_id">{{$rev->user_id}}</label>
-                        <label>{{ __('Date') }}</label>
-                        <label for="created_at">{{$rev->created_at}}</label>
-                        <div>{{$rev->description}}</div>
                     @endif
                 @endforeach
             </div>

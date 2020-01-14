@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Models\Review;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,23 +37,24 @@ class ReviewsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $this->validate($request, [
             'description' => 'required',
-
+            'rating'=>'required',
 
         ]);
-        $review = new Review();
+        $review = Review::find($id);
         $review->description = $request->get('description');
-        $review->rating =0;
         $review->user_id = Auth::id();
         $review->hotel_id=$request->get('hotel_id');
+        $review->rating=$request->get('rating');
 
+        $review =Review::with(['user'])->where('id', $id)->get();
         $review->save();
 
 
-        return redirect()->back();
+        return view('hotel.show', ['review' => $review]);
     }
 
     /**

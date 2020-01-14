@@ -40,4 +40,5 @@ Route::post('/management/upload','ManagementController@upload')->name('managemen
 
 Route::get('/management/book/{id}/','ManagementController@book')->name('management.book');
 Route::get('/users/res/{id}/','UserController@res')->name('users.res');
-Route::resource('review','ReviewsController');
+Route::get('review/store/','ReviewsController@store')->name('review.store');
+
