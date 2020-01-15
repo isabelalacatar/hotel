@@ -25,7 +25,7 @@
         font-size: 1.25em;
     }
 
-    .star-rating .fa-star{
+    .star-rating .fa-star {
         color: orange;
     }
 </style>
@@ -171,6 +171,7 @@
             <div>
                 <label><b>Reviews</b></label><br>
 
+
                 @foreach($reviews as $rev)
                     @if(isset($rev))
                         <div class="card">
@@ -179,43 +180,69 @@
                                     <div class="col-md-2">
                                         <p class="text-secondary text-center">{{$rev->updated_at}}</p>
                                     </div>
-                                    <p>
+                                    <div class="col-md">
                                         <a class="float-left"><strong>{{$rev->user->name}}</strong></a>
-                                    </p>
-                                    <div><br>{{$rev->description}}</div>
 
-{{--                                    @php $rating = 3.1; @endphp--}}
-
-{{--                                    <p>--}}
-{{--                                    <div class="placeholder" style="color: lightgray;">--}}
-{{--                                        <i class="far fa-star"></i>--}}
-{{--                                        <i class="far fa-star"></i>--}}
-{{--                                        <i class="far fa-star"></i>--}}
-{{--                                        <i class="far fa-star"></i>--}}
-{{--                                        <i class="far fa-star"></i>--}}
-{{--                                        <span class="small">({{ $rating }})</span>--}}
-{{--                                    </div>--}}
-
-{{--                                    <div class="overlay" style="position: relative;top: -22px;">--}}
-
-{{--                                        @while($rating>0)--}}
-{{--                                            @if($rating >0.5)--}}
-{{--                                                <i class="fas fa-star"></i>--}}
-{{--                                            @else--}}
-{{--                                                <i class="fas fa-star-half"></i>--}}
-{{--                                            @endif--}}
-{{--                                            @php $rating--; @endphp--}}
-{{--                                        @endwhile--}}
+                                        <br>{{$rev->description}}
 
                                     </div>
+                                    <div class="col-md-6">
+                                        <span class="review-stars" style="color: orange">
+                                            @if($rev->rating<=0)
+                                            <span class="fa fa-star-o" aria-hidden="true"></span>
+                                            <span class="fa fa-star-o" aria-hidden="true" ></span>
+                                            <span class="fa fa-star-o" aria-hidden="true"></span>
+                                            <span class="fa fa-star-o" aria-hidden="true"></span>
+                                            <span class="fa fa-star-o" aria-hidden="true"></span>
+                                        @endif
+                                                @if($rev->rating===1)
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true" ></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                @endif
+                                                @if($rev->rating===2)
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true" ></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                @endif
+                                                @if($rev->rating===3)
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true" ></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                @endif
+                                                @if($rev->rating===4)
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true" ></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star-o" aria-hidden="true"></span>
+                                                @endif
+                                                @if($rev->rating===5)
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true" ></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                @endif
+                                        </span>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
-                    @endif
-                @endforeach
             </div>
+
+            @endif
+            @endforeach
         </div>
+    </div>
     </div>
 
 @endsection
