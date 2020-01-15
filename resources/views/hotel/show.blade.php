@@ -26,7 +26,7 @@
     }
 
     .star-rating .fa-star{
-        color: yellow;
+        color: orange;
     }
 </style>
 <body class="w3-light-grey">
@@ -131,7 +131,7 @@
                 <div style="text-align: justify">{{$hotel->description}}</div>
             </div>
             {{--            </div>--}}
-            <form method="GET" action="{{ route('review.store',$review->id) }}">
+            <form method="get" action="{{ route('review.store') }}">
                 @csrf
                 @method('GET')
                 <div class="form-group ">
@@ -157,7 +157,7 @@
                         <span class="fa fa-star" data-rating="3"></span>
                         <span class="fa fa-star" data-rating="4"></span>
                         <span class="fa fa-star" data-rating="5"></span>
-                        <input type="hidden" name="rating" class="rating-value" value="2.56">
+                        <input type="hidden" name="rating" class="rating-value" value="1">
                     </div>
                 </div>
                 <div class="col-md-8" style="text-align: center">
@@ -171,7 +171,7 @@
             <div>
                 <label><b>Reviews</b></label><br>
 
-                @foreach($hotel->reviews as $rev)
+                @foreach($reviews as $rev)
                     @if(isset($rev))
                         <div class="card">
                             <div class="card-body">
@@ -183,6 +183,31 @@
                                         <a class="float-left"><strong>{{$rev->user->name}}</strong></a>
                                     </p>
                                     <div><br>{{$rev->description}}</div>
+
+{{--                                    @php $rating = 3.1; @endphp--}}
+
+{{--                                    <p>--}}
+{{--                                    <div class="placeholder" style="color: lightgray;">--}}
+{{--                                        <i class="far fa-star"></i>--}}
+{{--                                        <i class="far fa-star"></i>--}}
+{{--                                        <i class="far fa-star"></i>--}}
+{{--                                        <i class="far fa-star"></i>--}}
+{{--                                        <i class="far fa-star"></i>--}}
+{{--                                        <span class="small">({{ $rating }})</span>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="overlay" style="position: relative;top: -22px;">--}}
+
+{{--                                        @while($rating>0)--}}
+{{--                                            @if($rating >0.5)--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                            @else--}}
+{{--                                                <i class="fas fa-star-half"></i>--}}
+{{--                                            @endif--}}
+{{--                                            @php $rating--; @endphp--}}
+{{--                                        @endwhile--}}
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

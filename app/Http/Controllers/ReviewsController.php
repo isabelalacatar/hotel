@@ -37,24 +37,23 @@ class ReviewsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'description' => 'required',
             'rating'=>'required',
 
         ]);
-        $review = Review::find($id);
+        $review = new Review();
         $review->description = $request->get('description');
         $review->user_id = Auth::id();
         $review->hotel_id=$request->get('hotel_id');
         $review->rating=$request->get('rating');
 
-        $review =Review::with(['user'])->where('id', $id)->get();
         $review->save();
 
 
-        return view('hotel.show', ['review' => $review]);
+        return redirect()->back();
     }
 
     /**

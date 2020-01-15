@@ -14,8 +14,8 @@
                 @hasrole("admin")
                 <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('users.index') }}">{{ __('Customer') }}</a>
-            </li>
+                    <a class="nav-link" href="{{ route('users.index') }}">{{ __('Customer') }}</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('management.index') }}">{{ __('Hotel') }}</a>
                 </li>
@@ -26,10 +26,12 @@
 
                 <a class="nav-link" href="{{ route('hotels.index') }}">{{ __('Reservation') }}</a>
             </li>
-            <li class="nav-item">
+            @auth
+                <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('users.res', Auth::id())}}">{{ __('My Reservation') }}</a>
-            </li>
+                    <a class="nav-link" href="{{ route('users.res', Auth::id())}}">{{ __('My Reservation') }}</a>
+                </li>
+            @endauth
         </ul>
 
 

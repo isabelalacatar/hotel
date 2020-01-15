@@ -81,7 +81,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('user.edit')->with('user', $users);
+        return view('users.edit')->with('user', $users);
 
     }
 
@@ -127,6 +127,7 @@ class UserController extends Controller
 
     public function res($id)
     {
+
         $rooms = Room::with(['hotel','reservations' => function ($query) use ($id) {
             $query->where('user_id', $id);
         }])->get();

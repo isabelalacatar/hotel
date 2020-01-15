@@ -28,7 +28,6 @@
                         @endif
                     @endforeach
                 @endforeach
-
                 </tbody>
             </table>
         </div>
