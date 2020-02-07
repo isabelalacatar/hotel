@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="388c56bf-c584-43ca-8e23-a7a029c0779a" name="Default Changelist" comment="Added modifications">
+    <list default="true" id="388c56bf-c584-43ca-8e23-a7a029c0779a" name="Default Changelist" comment="Insert reviews by a specific user to a hotel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ManagementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ManagementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HotelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HotelController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ImageServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/management/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/management/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/UploadComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/UploadComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/management/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/management/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,6 +48,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PhpDebugGeneral" break_at_first_line="true" />
   <component name="PhpServers">
     <servers>
       <server host="hotels.test" id="8c7fce37-a417-473e-bfa9-c9a5b2ada0a6" name="hotels.test" use_path_mappings="true">
@@ -163,20 +167,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\hotel\public\storage" />
+      <recent name="C:\xampp\htdocs\hotel\public\js" />
+      <recent name="C:\xampp\htdocs\hotel\app\Models" />
+      <recent name="C:\xampp\htdocs\hotel\resources\views\user" />
+      <recent name="C:\xampp\htdocs\hotel\storage\app\public\hotels\1" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\hotel\resources\js\components" />
       <recent name="C:\xampp\htdocs\hotel" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\hotel\storage\app\public\hotels\1" />
-      <recent name="C:\xampp\htdocs\hotel\public\storage\hotels\2" />
-      <recent name="C:\xampp\htdocs\hotel\public\storage\hotels\1" />
-      <recent name="C:\xampp\htdocs\hotel\storage\app\public\hotels\2" />
-      <recent name="C:\xampp\htdocs\hotel\app\Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -246,7 +250,26 @@
       <workItem from="1576743468075" duration="2768000" />
       <workItem from="1576824427791" duration="892000" />
       <workItem from="1576828888654" duration="6029000" />
-      <workItem from="1577702524638" duration="4528000" />
+      <workItem from="1577702524638" duration="8459000" />
+      <workItem from="1578291243140" duration="19716000" />
+      <workItem from="1578379100951" duration="13450000" />
+      <workItem from="1578469863746" duration="16393000" />
+      <workItem from="1578554784008" duration="15916000" />
+      <workItem from="1578639644200" duration="16175000" />
+      <workItem from="1578898746827" duration="18082000" />
+      <workItem from="1578982461654" duration="9762000" />
+      <workItem from="1579000553663" duration="2732000" />
+      <workItem from="1579071668551" duration="9344000" />
+      <workItem from="1579161120780" duration="5002000" />
+      <workItem from="1579591190347" duration="7681000" />
+      <workItem from="1579679650304" duration="9120000" />
+      <workItem from="1580212399028" duration="6726000" />
+      <workItem from="1580291686166" duration="3169000" />
+      <workItem from="1580384384326" duration="6725000" />
+      <workItem from="1580482285343" duration="1949000" />
+      <workItem from="1580719291572" duration="604000" />
+      <workItem from="1580971161619" duration="19187000" />
+      <workItem from="1581059878321" duration="798000" />
     </task>
     <task id="LOCAL-00001" summary="Added roles and user seeders">
       <created>1574084813210</created>
@@ -388,7 +411,77 @@
       <option name="project" value="LOCAL" />
       <updated>1576654107038</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added password hash and hotels pagination">
+      <created>1577708648871</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1577708648871</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added password hash and hotels pagination">
+      <created>1578317862573</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1578317862573</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added reservations from each specific hotel">
+      <created>1578400062366</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1578400062366</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added reservations from each specific user">
+      <created>1578556095850</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1578556095864</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added reservations from each specific user">
+      <created>1578575908371</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1578575908371</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added reservations from each specific user">
+      <created>1578667215279</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1578667215279</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added reservations from each specific user">
+      <created>1578982480470</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1578982480470</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added reservations from each specific user">
+      <created>1579074647248</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1579074647248</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added reservations from each specific user">
+      <created>1579088273247</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1579088273247</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Insert reviews by a specific user to a hotel(blade)">
+      <created>1581060632154</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1581060632154</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +514,11 @@
     <MESSAGE value="Added upload images" />
     <MESSAGE value="Added reservations display" />
     <MESSAGE value="Added modifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added modifications" />
+    <MESSAGE value="Added password hash and hotels pagination" />
+    <MESSAGE value="Added reservations from each specific hotel" />
+    <MESSAGE value="Added reservations from each specific user" />
+    <MESSAGE value="Insert reviews by a specific user to a hotel(blade)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Insert reviews by a specific user to a hotel(blade)" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

@@ -41,4 +41,5 @@ Route::post('/management/upload','ManagementController@upload')->name('managemen
 Route::get('/management/book/{id}/','ManagementController@book')->name('management.book');
 Route::get('/users/res/{id}/','UserController@res')->name('users.res');
 Route::get('review/store/','ReviewsController@store')->name('review.store');
-
+Route::post('/hotel/{id}/images/','HotelController@images')->name('hotels.images');
+Route::delete('/hotel/{id}/removeUpload/','HotelController@removeUpload')->name('hotel.removeUpload');
