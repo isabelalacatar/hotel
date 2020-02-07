@@ -81,7 +81,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('users.edit')->with('user', $users);
+        return view('user.edit')->with('user', $users);
 
     }
 
@@ -111,7 +111,7 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect()->route("users.index");
+        return redirect()->route("user.index");
 
 
     }
