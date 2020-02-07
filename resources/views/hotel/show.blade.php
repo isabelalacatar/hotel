@@ -53,6 +53,7 @@
                             @foreach($hotel->uploads as $upload)
                                 @if(isset($upload))
                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+{{--                                        http://localhost/hotel/public/storage/hotels/1/1579004103_image_2.jpg--}}
                                         <img class="d-block img-fluid"
                                              src={{Storage::url("public/hotels/".$hotel->id."/".$upload->path)}}>
                                         <div class="carousel-caption d-none d-md-block">
