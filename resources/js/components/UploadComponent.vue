@@ -9,7 +9,7 @@
 
         <div v-for="(image, key) in files" class="file-listing">
             <img class="preview" v-bind:ref="'preview'+parseInt(key)"/>
-            {{ image.name }}
+            {{ image.path }}
             <div class="success-container" v-if="image.id > 0">
                 Success
             </div>
@@ -18,8 +18,17 @@
             </div>
         </div>
 
+
         <a class="submit-button" v-on:click="uploadImage()" v-show="files.length > 0">Submit</a>
+          <div v-for="(upload, key) in uploads" class="file-listing">
+            <img class="preview" v-bind:src="upload.image_path"/>
+            {{ upload.name }}
+            <div class="remove-container">
+                <a class="remove" v-on:click="deleteUpload(upload.id)">Remove</a>
+            </div>
+        </div>
     </div>
+
 </template>
 
 <script type="application/javascript">
@@ -27,33 +36,60 @@
         props: ["hotelId"],
         data() {
             return {
-                files: []
+                files: [],
+                images: [],
+                uploads:[]
             }
+        },
+
+        mounted() {
+            console.log('Component mounted.')
+            const axios = require('axios');
+            console.log(this.hotelId);
+            let that = this;
+            // Make a request for a user with a given ID
+            axios.post(route('hotels.images', this.hotelId))
+                .then(function (response) {
+                    // that.files = response.data.data;
+                    that.uploads = response.data.data;
+
+                    // handle success
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
+
         },
         methods: {
             handleFiles() {
                 let uploadedFiles = this.$refs.files.files;
 
-                for(var i = 0; i < uploadedFiles.length; i++) {
+                for (var i = 0; i < uploadedFiles.length; i++) {
                     this.files.push(uploadedFiles[i]);
                 }
                 this.getImagePreviews();
             },
-            removeFile( key ){
-                this.image.splice( key, 1 );
+            removeFile(key) {
+                this.files.splice(key, 1);
                 this.getImagePreviews();
             },
-            getImagePreviews(){
-                for( let i = 0; i < this.files.length; i++ ){
-                    if ( /\.(jpe?g|png|gif)$/i.test( this.files[i].name ) ) {
+            getImagePreviews() {
+                for (let i = 0; i < this.files.length; i++) {
+                    if (/\.(jpe?g|png|gif)$/i.test(this.files[i].name)) {
                         let reader = new FileReader();
-                        reader.addEventListener("load", function(){
-                            this.$refs['preview'+parseInt(i)][0].src = reader.result;
+                        reader.addEventListener("load", function () {
+                            this.$refs['preview' + parseInt(i)][0].src = reader.result;
                         }.bind(this), false);
-                        reader.readAsDataURL( this.files[i] );
-                    }else{
-                        this.$nextTick(function(){
-                            this.$refs['preview'+parseInt(i)][0].src = '/img/generic.png';
+                        reader.readAsDataURL(this.files[i]);
+                    } else {
+                        this.$nextTick(function () {
+                            this.$refs['preview' + parseInt(i)][0].src = '/img/generic.png';
                         });
                     }
                 }
@@ -78,19 +114,30 @@
                         console.log('error');
                     });
                 }
+            },
+            deleteUpload(upload_id){
+                axios.delete('hotel/removeUpload/'+upload_id)
+                    .then((response) => {
+                        console.log(response)
+                    },(error) => {
+                        console.log(error)
+                    });
             }
         }
-    }
+        }
 </script>
 
+
+
 <style scoped>
-    input[type="file"]{
+    input[type="file"] {
         opacity: 0;
         width: 100%;
         height: 200px;
         position: absolute;
         cursor: pointer;
     }
+
     .filezone {
         outline: 2px dashed grey;
         outline-offset: -10px;
@@ -101,6 +148,7 @@
         position: relative;
         cursor: pointer;
     }
+
     .filezone:hover {
         background: #c0c0c0;
     }
@@ -110,34 +158,36 @@
         text-align: center;
         padding: 50px 50px 50px 50px;
     }
-    div.file-listing img{
+
+    div.file-listing img {
         max-width: 90%;
     }
 
-    div.file-listing{
+    div.file-listing {
         margin: auto;
         padding: 10px;
         border-bottom: 1px solid #ddd;
     }
 
-    div.file-listing img{
+    div.file-listing img {
         height: 100px;
     }
-    div.success-container{
+
+    div.success-container {
         text-align: center;
         color: green;
     }
 
-    div.remove-container{
+    div.remove-container {
         text-align: center;
     }
 
-    div.remove-container a{
+    div.remove-container a {
         color: red;
         cursor: pointer;
     }
 
-    a.submit-button{
+    a.submit-button {
         display: block;
         margin: auto;
         text-align: center;
