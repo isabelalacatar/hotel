@@ -24,7 +24,7 @@
             <img class="preview" v-bind:src="upload.image_path"/>
             {{ upload.name }}
             <div class="remove-container">
-                <a class="remove" v-on:click="deleteUpload(upload.id)">Remove</a>
+                <a class="remove" v-on:click="deleteUpload(key)">Remove</a>
             </div>
         </div>
     </div>
@@ -115,9 +115,16 @@
                     });
                 }
             },
-            deleteUpload(upload_id){
-                axios.delete('hotel/removeUpload/'+upload_id)
+            deleteUpload(key){
+                const formData = new FormData();
+                let that=this;
+                let upload_id=this.uploads[key].id;
+                axios.delete(route('hotels.remove',upload_id),
+                    formData,
+                    {'Content-Type': 'multipart/form-data'}
+                )
                     .then((response) => {
+                        that.uploads.splice(key, 1);
                         console.log(response)
                     },(error) => {
                         console.log(error)

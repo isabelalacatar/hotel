@@ -88,17 +88,18 @@ class HotelController extends Controller
      * @param \App\Hotel $hotel
      * @return \Illuminate\Http\Response
      */
-//    public function removeUpload($id)
-//    {
-//
-//        $uploads = Upload::find($id);
-//        Storage::delete($uploads['id']);
-//        $uploads->delete();
-//        return response()->json([
-//            'success' => true,
-//            'data' => $uploads
-//        ], 200);
-//    }
+    public function remove($id)
+    {
+        $uploads = Upload::find($id);
+       $uploadImage ="public/hotels/".$uploads->hotel_id."/".$uploads->path;
+
+        Storage::delete($uploadImage);
+        $uploads->delete();
+        return response()->json([
+            'success' => true,
+            'data' => $uploads
+        ], 200);
+    }
 
     public function check(Request $request)
     {
